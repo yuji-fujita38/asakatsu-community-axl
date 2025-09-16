@@ -506,10 +506,6 @@ img {
   margin: 0 auto;
 }
 
-.results-image-grid img {
-  border-radius: 0 !important; /* 角丸を解除 */
-}
-
 
 /* モバイル：1列 */
 @media (min-width: 768px) {
@@ -539,17 +535,13 @@ img {
   background: var(--color-card);
   color: var(--color-card-foreground);
   padding: var(--spacing-xl);
-  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
   display: flex;
   gap: var(--spacing-md);
   align-items: flex-start;
 }
 
-.testimonial-avatar {
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+
 
 .testimonial-name {
   font-size: var(--font-size-lg);
