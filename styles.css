@@ -799,29 +799,16 @@ img {
 }
 
 
-.testimonials-grid {
-  display: grid;
-  gap: var(--spacing-xl);
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.testimonial-card {
-  background: var(--color-card);
-  color: var(--color-card-foreground);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-md);
-  display: flex;
-  gap: var(--spacing-md);
-  align-items: flex-start;
-}
-
-
-
-.testimonial-name {
-  font-size: var(--font-size-lg);
+.achievement-name {
   font-weight: 700;
-  margin-bottom: var(--spacing-sm);
+  font-size: 1rem;
+  margin-bottom: 0.25rem; /* 名前とnoteの余白 */
+}
+
+.achievement-note {
+  font-size: 0.9rem;
+  color: var(--color-muted-foreground); /* 薄めにして補足感を出す */
+  line-height: 1.4;
 }
 
 .before-text {
@@ -997,9 +984,6 @@ img {
     grid-template-columns: 1fr auto 1fr;
   }
 
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
 
    .hero {
     padding-bottom: 140px; /* ▼と重ならないように下を広げる */
@@ -1137,10 +1121,6 @@ img {
     font-size: var(--font-size-2xl);
   }
 
-  .testimonial-card {
-    flex-direction: column;
-    text-align: center;
-  }
 
   .footer-content {
     flex-direction: column;
@@ -1269,4 +1249,58 @@ img {
   background: transparent;
   border: 0;
   cursor: pointer;
+}
+
+.section-heading {
+  text-align: center;
+  margin: var(--spacing-xl) 0 var(--spacing-lg);
+}
+
+.heading-label {
+  display: inline-block;
+  padding: .6rem 1.4rem;
+  border-radius: 9999px; /* ピル */
+  font-weight: 700; /* section-titleと揃える */
+  font-size: var(--font-size-3xl); /* ← 統一 */
+  line-height: 1.2;
+  letter-spacing: .02em;
+  color: #fff;
+
+  /* ダーク背景 + ゴールド枠 */
+  background:
+    linear-gradient(180deg, #222 0%, #141414 100%) padding-box,
+    linear-gradient(90deg, #fff3a1 0%, var(--color-accent) 45%, #b88900 100%) border-box;
+  border: 2px solid transparent;
+
+  box-shadow:
+    0 6px 22px rgba(255, 215, 0, .08),
+    0 1px 0 rgba(255,255,255,.05) inset;
+
+  position: relative;
+}
+
+/* 左右の装飾チップ */
+.heading-label::before,
+.heading-label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff 0%, var(--color-accent) 45%, #9a7400 100%);
+  transform: translateY(-50%);
+  opacity: .9;
+}
+.heading-label::before { left: -14px; }
+.heading-label::after  { right: -14px; }
+
+/* モバイル微調整 */
+@media (max-width: 767px) {
+  .heading-label {
+    padding: .5rem 1.1rem;
+    font-size: var(--font-size-2xl); /* 他のセクションと統一 */
+    border-width: 1.5px;
+  }
+  .heading-label::before,
+  .heading-label::after { display: none; }
 }
