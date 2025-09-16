@@ -765,13 +765,50 @@ img {
     visibility: visible;
   }
 
+  /* ===== Hero（崩れ対策） ===== */
+  .hero {
+    min-height: 100dvh;      /* 100vh問題の回避 */
+    padding-top: 72px;       /* 固定ヘッダー分＋余白 */
+  }
+
   .hero-title {
-    font-size: var(--font-size-3xl);
+    /* 画面幅に追随して安全に縮む */
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+  .hero-title span { display: block; }
+
+  /* 2行目「朝活×ジャーナル」を少しだけ大きく＆上に余白 */
+  .hero-title .accent-text {
+    display: block;
+    margin-top: .6em;
+    font-size: 1.08em;
+    font-weight: 900;
+    letter-spacing: .02em;
   }
 
   .hero-subtitle {
-    font-size: var(--font-size-lg);
+    font-size: clamp(1rem, 4.2vw, 1.25rem);
+    margin-bottom: 0.75rem;
   }
+
+  /* 説明文の可読性を少し上げる */
+  .hero-description p {
+    font-size: var(--font-size-sm);
+    line-height: 1.8;
+  }
+
+  /* ボタンは中央＆上に十分な余白 */
+  .hero .btn.btn-primary {
+    display: block;
+    width: min(100%, 22rem);
+    margin: 1.25rem auto 0;
+  }
+
+  /* スクロール誘導の余白を増やす（必要に応じて） */
+  .scroll-indicator { bottom: var(--spacing-md); }
+  .scroll-indicator span { margin-bottom: var(--spacing-sm); }
 
   .section-title {
     font-size: var(--font-size-2xl);
@@ -796,27 +833,26 @@ img {
     justify-content: center;
   }
 
-   .organizer-image {
-    text-align: center; /* 画像を中央寄せ */
+  /* ===== 主宰プロフィール（画像を円＆中央） ===== */
+  .organizer-image {
+    text-align: center;
   }
-
   .organizer-image img {
-    border-radius: 50%;     /* 円形にする */
-    width: 200px;           /* スマホ用にサイズ調整 */
-    height: 250px;          /* 正方形にして円形を維持 */
-    object-fit: cover;      /* はみ出しをトリミング */
-    margin: 0 auto;         /* 左右中央寄せ */
+    border-radius: 50%;   /* 円形にする */
+    width: 200px;
+    height: 200px;        /* 幅と同じにして完全な円に */
+    object-fit: cover;
+    margin: 0 auto;
     display: block;
   }
 
+  /* テキストも中央寄せ */
   .organizer-name,
   .organizer-role,
   .organizer-bio,
-  .organizer-message
-   {
+  .organizer-message {
     text-align: center;
-}
-
+  }
 }
 
 /* Organizer Section */
