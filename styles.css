@@ -1088,8 +1088,10 @@ img {
   }
 
   .hero-subtitle {
-    font-size: clamp(1rem, 3vw, 1rem);
-    margin-bottom: 0.75rem;
+   font-size: var(--font-size-sm); /* hero-descriptionと同じに揃える */
+    line-height: 1.8;               /* descriptionと同じ行間 */
+    margin-top: 1.5rem;            /* 上との余白を広めにする */
+    margin-bottom: 0.2rem;         /* 下の余白は控えめに調整 */
   }
 
   .hero-description p {
