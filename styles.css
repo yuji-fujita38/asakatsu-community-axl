@@ -506,6 +506,11 @@ img {
   margin: 0 auto;
 }
 
+.results-image-grid img {
+  border-radius: 0 !important; /* 角丸を解除 */
+}
+
+
 /* モバイル：1列 */
 @media (min-width: 768px) {
   .results-image-grid {
