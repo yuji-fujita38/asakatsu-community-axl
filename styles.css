@@ -895,7 +895,7 @@ img {
   .organizer-image img {
     border-radius: 50%;
     width: 200px;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
     margin: 0 auto;
     display: block;
