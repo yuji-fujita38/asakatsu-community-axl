@@ -117,4 +117,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     lastScrollTop = scrollTop
   })
-})
+
+   /* ===========================
+     Lightbox（実績画像の拡大表示）
+     =========================== */
+  const lightbox = document.querySelector("[data-lightbox]");
+  const lightboxImg = lightbox?.querySelector(".lightbox-image");
+  const closeBtn = lightbox?.querySelector("[data-lightbox-close]");
+
+  const openLightbox = (src) => {
+    if (!lightbox || !lightboxImg || !src) return;
+    lightboxImg.src = src;
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden"; // 背景スクロール抑止
+  };
+
+  const closeLightbox = () => {
+    if (!lightbox || !lightboxImg) return;
+    lightbox.hidden = true;
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  };
+
+  // 画像拡大（イベント委譲で button.achievement-zoom を拾う）
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".achievement-zoom");
+    if (btn) {
+      const src = btn.dataset.img || btn.querySelector("img")?.src;
+      openLightbox(src);
+    }
+  });
+
+  // ×ボタン / 背景クリック / ESC で閉じる
+  closeBtn?.addEventListener("click", closeLightbox);
+  lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox(); // 背景クリック
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox && !lightbox.hidden) closeLightbox();
+  });
+
+});
+
+
+
