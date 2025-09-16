@@ -162,6 +162,7 @@ img {
   color: transparent;
   opacity: 0.6;
   margin-top: 0.2em;
+  line-height: 1.2; 
 }
 
 
@@ -328,7 +329,7 @@ img {
 
 
 .hero-subtitle {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   color: var(--color-accent);
   font-weight: 500;
   margin-bottom: var(--spacing-md);
@@ -1071,7 +1072,7 @@ img {
   }
 
   .hero-subtitle {
-    font-size: clamp(1rem, 4.2vw, 1.25rem);
+    font-size: clamp(1rem, 3vw, 1rem);
     margin-bottom: 0.75rem;
   }
 
